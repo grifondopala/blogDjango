@@ -1,0 +1,9 @@
+<div class="card my-2">
+    <div class="card-body">
+      <a class="card-title" href="/post/{{post.id}}">{{post.title}}</a>
+      <p class="card-text">{{post.text}}</p>
+      <a class="btn btn-primary" href="{% url 'post_edit' pk=post.pk %}">
+        <i class="bi-pencil-square"> Редактировать</i>
+      </a>
+    </div>
+  </div>

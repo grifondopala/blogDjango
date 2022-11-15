@@ -17,52 +17,48 @@
 </head>
 
 <body>
-  <div class="col-lg-8 mx-auto p-4 py-md-5">
-    <!-- <header class="d-flex align-items-center pb-3 mb-5 border-bottom">
-      <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
-        <span class="fs-4">Мой блог</span>
-      </a>
-      <a href="{% url 'post_new' %}"><i class="bi-plus"></i></a>
-      {% if user.is_authenticated %}
-        <div style="margin-left: 20px;">
-          <label>{{ user.get_username }}</label>
-          <a class="btn btn-danger" href="{% url 'logout' %}">Выйти</a>
-        </div>
-        {% else %}
-          <div>
-            <a class="btn btn-success" href="{% url 'login' %}">Войти</a>
-          </div>
-      {% endif %}
-    </header> -->
 
-    <nav class="navbar navbar-expand-lg bg-light mb-3">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="/">Мой блог</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            {% if user.is_authenticated %}
-            <div class="ms-1">
-              <a href="{% url 'post_new' %}"><i class="bi-plus"></i></a>
-              <label>{{ user.get_username }}</label>
-              <a class="btn btn-danger ms-2" href="{% url 'logout' %}">Выйти</a>
-            </div>
-            {% else %}
-              <div>
-                <a class="btn btn-success ms-2" href="{% url 'login' %}">Войти</a>
-              </div>
+<nav class="navbar bg-light">
+  <div class="col-lg-8 mx-auto">
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">Мой блог</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          {% if user.is_authenticated %}
+          <a href="{% url 'post_new' %}" style="text-decoration: none">
+            <i class="bi-plus"></i>
+            <label style="cursor: pointer">Добавить пост</label>
+          </a>
           {% endif %}
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                {% if user.is_authenticated %}
+                  <div style="margin-left: auto; margin-right: 0">
+                    <label>{{ user.get_username }}</label>
+                    <a class="btn btn-danger ms-2" href="{% url 'logout' %}">Выйти</a>
+                  </div>
+                  {% else %}
+                    <div style="margin-left: auto; margin-right: 0">
+                      <a class="btn btn-success ms-2" href="{% url 'login' %}">Войти</a>
+                    </div>
+                {% endif %}
           </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+  </div>
+</nav>
+
+
+  <div class="col-lg-8 mx-auto p-4">
 
         {%block content%}
         {%endblock%}
 
+        <p>НИЯУ МИФИ · © 2022</p>
+
         {% block footer %}
+
         {% endblock %}
   </div>
 </body>
